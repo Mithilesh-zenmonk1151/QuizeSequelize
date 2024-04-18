@@ -1,5 +1,6 @@
 'use strict';
 /** @type {import('sequelize-cli').Migration} */
+const {Model}= require("sequelize")
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('questions', {
@@ -9,18 +10,25 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      uuid:{
+        type: DataTypes.UUID,
+        defaultValue: Sequelize.UUIDV4,
+      },
       options: {
         type: Sequelize.ARRAY(Sequelize.STRING),
         allowNull: false,
       },
       name: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull:false
       },
       correctOption: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull:false
       },
       weightage: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull:false
       },
       createdAt: {
         allowNull: false,

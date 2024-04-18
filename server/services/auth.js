@@ -1,4 +1,5 @@
 const {users}= require("../models");
+const {test}= require("../models")
 const bcrypt=require("bcrypt")
 exports.signup = async (payload) => {
   try {
@@ -24,14 +25,17 @@ exports.signup = async (payload) => {
     // const isEmailValid = validateEmail(email);
     // const isPasswordValid = validatePassword(password);
     // console.log(isEmailValid, isPasswordValid);
+    const {testId}= payload.body;
 
     // if (isEmailValid)  {
-      const hashedPassword = bcrypt.hashSync(password);
+      // const hashedPassword = bcrypt.hashSync(password);
+      const tests=await test.findOne({where:{id:testId}})
+      console.log("testsss:---",tests.instructions)
 
       const user = await users.create({
         name:name,
         email:email,
-        password:hashedPassword,
+        password:password,
         role:role,
       });
 

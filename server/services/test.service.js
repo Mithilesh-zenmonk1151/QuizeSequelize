@@ -10,7 +10,6 @@ exports.createTest=async(payload)=>{
             duration:duration
         })
         return Test;
-
     }
     catch(error){
         throw error;
@@ -20,11 +19,9 @@ exports.getTests=async(payload)=>{
     try{
  const response= await test.findAll();
  return response;
-
     }
     catch(error){
         throw error;
-
     }
 }
 exports.updateTes=async(payload)=>{
@@ -34,7 +31,6 @@ exports.updateTes=async(payload)=>{
         const Test=await test.update({id:id});
         await  Test.save();
         return Test;
-
     }
     catch(error){
         throw error;

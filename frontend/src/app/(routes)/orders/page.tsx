@@ -1,5 +1,5 @@
 export default function Order(){
     return <>
-        hello
+        <h1>Orders page</h1>
     </>
 }
