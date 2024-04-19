@@ -7,31 +7,31 @@ module.exports = {
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
+        defaultValue: Sequelize.INTEGER,
+      },
+      uuid:{
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4,
       },
       name: {
         type: Sequelize.STRING,
       },
-      email:{
+      email: {
         type: Sequelize.STRING,
         validate: {
           isEmail: true,
-          is: /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/
-        }
+          is: /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/,
+        },
       },
       password: {
         type: Sequelize.STRING,
         validate: {
-          is: /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/
-        }},
+          is: /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/,
+        },
+      },
       role: {
         type: Sequelize.STRING,
       },
-      userId:{
-        type:Sequelize.INTEGER,
-        allowNull:false
-  
-       },
-
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

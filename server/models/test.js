@@ -17,11 +17,21 @@ module.exports = (sequelize, DataTypes) => {
   }
   test.init(
     {
-      name: DataTypes.STRING,
-      totalNumberOfQuestions: DataTypes.INTEGER,
-      totalMarks: DataTypes.INTEGER,
-      instructions: DataTypes.STRING,
-      duration: DataTypes.TIME,
+      id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+      },
+      uuid: {
+        type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4,
+      },
+      name: { type: DataTypes.STRING, allowNull: false },
+      totalNumberOfQuestions: { type: DataTypes.INTEGER, allowNull: false },
+      totalMarks: { type: DataTypes.INTEGER, allowNull: false },
+      instructions: { type: DataTypes.STRING, allowNull: false },
+      duration: { type: DataTypes.TIME, allowNull: false },
     },
     {
       sequelize,

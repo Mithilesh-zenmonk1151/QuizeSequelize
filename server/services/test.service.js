@@ -17,6 +17,7 @@ exports.createTest=async(payload)=>{
 }
 exports.getTests=async(payload)=>{
     try{
+        
  const response= await test.findAll();
  return response;
     }

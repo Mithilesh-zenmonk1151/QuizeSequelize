@@ -34,7 +34,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
       },
-      name:{ type:DataTypes.STRING,
+      title:{ type:DataTypes.STRING,
       allowNull:false},
       correctOption:{type: DataTypes.STRING,
         allowNull:false},

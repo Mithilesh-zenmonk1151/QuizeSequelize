@@ -30,7 +30,7 @@ app.listen({port: process.env.PORT}, async () => {
     console.log(`Server running on PORT ${process.env.PORT}`)
     try {
         await sequelize.authenticate();
-        console.log(' Connection has been established successfully.');
+        console.log('Database connection stablish');
     } catch (error) {
         console.error('Unable to connect to the database:', error);
     }

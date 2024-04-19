@@ -11,14 +11,14 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       uuid:{
-        type: DataTypes.UUID,
+        type: Sequelize.UUID,
         defaultValue: Sequelize.UUIDV4,
       },
       options: {
         type: Sequelize.ARRAY(Sequelize.STRING),
         allowNull: false,
       },
-      name: {
+      title: {
         type: Sequelize.STRING,
         allowNull:false
       },
