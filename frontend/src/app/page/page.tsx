@@ -8,23 +8,31 @@ export default function Signup() {
   const [role,setRole]=useState("");
   console.log("dferwtgerwtrwetgr")
   async function handleOnSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault()
- 
-    const formData = new FormData(event.currentTarget)
-    const name= formData.get("name")
-    const email = formData.get("email")
-    const password = formData.get('password')
-    const role= formData.get("role"); 
-    console.log("role",role)   
-    const response = await fetch(' http://localhost:4000/api/auth/signup', {
-      method: 'POST',
-      body: JSON.stringify({name,email,password,role}),
-    })
-    
- 
-    // Handle response if necessary
-    const data = await response.json()
-    // ...
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    const name = formData.get("name") as string;
+    const email = formData.get("email") as string;
+    const password = formData.get('password') as string;
+    const role = formData.get("role") as string;
+    console.log("role", role);
+    const data = { name, email, password, role };
+    console.log("Sending data:", data);
+    try {
+      const response = await fetch('http://localhost:4000/api/auth/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+      if (!response.ok) {
+        throw new Error('Failed to sign up');
+      }
+      const responseData = await response.json();
+      console.log('Response from server:', responseData);
+    } catch (error) {
+      console.error('Error signing up:', error);
+    }
   }
  
   return (
