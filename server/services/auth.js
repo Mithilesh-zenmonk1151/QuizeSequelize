@@ -8,10 +8,10 @@ exports.signup = async (payload) => {
   try {
     const { name, email, password, role } = payload.body;
     console.log("Role--->", role, password);
-    const existingUser = await users.findOne({ where: { email: email } });
-    if (existingUser) {
-      return 409;
-    }
+    // const existingUser = await users.findOne({ where: { email: email } });
+    // if (existingUser) {
+    //   return 409;
+    // }
     const validateEmail = (email) => {
       const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
       return regex.test(email);

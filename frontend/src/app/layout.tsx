@@ -22,6 +22,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <AppRouterCacheProvider><ThemeProvider theme={theme}>{children}</ThemeProvider></AppRouterCacheProvider>
+        
       </body>
     </html>
   );
