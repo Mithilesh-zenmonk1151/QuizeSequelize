@@ -73,6 +73,7 @@ exports.login = async (payload) => {
       throw new CustomError("Token not generating", 500);
     }
     console.log("token---->", token);
+    console.log("LoginSuccesssssss");
     user.token = token;
     user.password = undefined;
     return { user, token };

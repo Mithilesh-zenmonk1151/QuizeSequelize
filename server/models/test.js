@@ -13,6 +13,8 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: "testId",
         sourceKey: "id",
       });
+
+      this.belongsTo(models.users,{foreignKey:'userId', as:'user'})
     }
   }
   test.init(
@@ -32,6 +34,9 @@ module.exports = (sequelize, DataTypes) => {
       totalMarks: { type: DataTypes.INTEGER, allowNull: false },
       instructions: { type: DataTypes.STRING, allowNull: false },
       duration: { type: DataTypes.TIME, allowNull: false },
+      userId:{type:DataTypes.STRING
+
+      },
     },
     {
       sequelize,

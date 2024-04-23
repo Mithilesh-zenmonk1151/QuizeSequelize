@@ -28,6 +28,10 @@ module.exports = {
       duration: {
         type: Sequelize.TIME
       },
+      userId:{
+        type:Sequelize.STRING
+
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
