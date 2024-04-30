@@ -21,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       id: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        // allowNull: false,
         autoIncrement: true,
         primaryKey: true,
       },
@@ -29,11 +29,11 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
       },
-      name: { type: DataTypes.STRING, allowNull: false },
-      totalNumberOfQuestions: { type: DataTypes.INTEGER, allowNull: false },
-      totalMarks: { type: DataTypes.INTEGER, allowNull: false },
-      instructions: { type: DataTypes.STRING, allowNull: false },
-      duration: { type: DataTypes.TIME, allowNull: false },
+      name: { type: DataTypes.STRING,  },
+      totalNumberOfQuestions: { type: DataTypes.INTEGER, },
+      totalMarks: { type: DataTypes.INTEGER,  },
+      instructions: { type: DataTypes.STRING,  },
+      duration: { type: DataTypes.INTEGER,  },
       userId:{type:DataTypes.STRING
 
       },

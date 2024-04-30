@@ -5,7 +5,7 @@ module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('questions', {
       id: {
-        allowNull: false,
+        // allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
@@ -14,21 +14,38 @@ module.exports = {
         type: Sequelize.UUID,
         defaultValue: Sequelize.UUIDV4,
       },
-      options: {
-        type: Sequelize.ARRAY(Sequelize.STRING),
-        allowNull: false,
-      },
       title: {
         type: Sequelize.STRING,
-        allowNull:false
+        // allowNull:false
       },
+      option1: {
+        type: Sequelize.STRING,
+        // allowNull: false,
+      },
+      option2: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      option3: {
+        type: Sequelize.STRING,
+        // allowNull: false,
+      },
+      option4: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      
       correctOption: {
         type: Sequelize.STRING,
-        allowNull:false
+        // allowNull:false
       },
       weightage: {
         type: Sequelize.INTEGER,
-        allowNull:false
+        // allowNull:false
+      },
+      testId:{
+        type:Sequelize.STRING
+
       },
       createdAt: {
         allowNull: false,

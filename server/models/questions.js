@@ -18,15 +18,15 @@ module.exports = (sequelize, DataTypes) => {
         sourceKey: "id",
       });
     }
-    toJSON(){
-      return {...this.get(),id: undefined}
+    toJSON() {
+      return { ...this.get(), id: undefined };
     }
   }
   questions.init(
     {
-      id: {
+      id:{
         type: DataTypes.INTEGER,
-        allowNull: false,
+        // allowNull: false,
         autoIncrement: true,
         primaryKey: true,
       },
@@ -34,16 +34,29 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
       },
-      title:{ type:DataTypes.STRING,
-      allowNull:false},
-      correctOption:{type: DataTypes.STRING,
-        allowNull:false},
-      weightage:{type: DataTypes.INTEGER,
-        allowNull:false},
-      options: {
-        type: DataTypes.ARRAY(DataTypes.STRING),
-        allowNull: false,
+      title:{ type: DataTypes.STRING,  },
+      correctOption:{ type: DataTypes.STRING, },
+      weightage:{ type: DataTypes.INTEGER, },
+     
+      option1:{
+        type: DataTypes.STRING,
+        // allowNull: false,
       },
+      option2:{
+        type: DataTypes.STRING,
+        // allowNull: false,
+      },
+      option3:{
+        type: DataTypes.STRING,
+        // allowNull: false,
+      },
+      option4:{
+        type: DataTypes.STRING,
+        // allowNull: false,
+      },
+      testId:{
+        type:DataTypes.STRING,
+      }
     },
     {
       sequelize,

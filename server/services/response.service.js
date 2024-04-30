@@ -40,6 +40,7 @@ exports.createResponse = async (payload) => {
 
     return Response;
   } catch (error) {
+    console.log("ërrorr", error)
     throw error;
   }
 };

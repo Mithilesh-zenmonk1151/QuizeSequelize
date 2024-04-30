@@ -4,7 +4,7 @@ module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('tests', {
       id: {
-        allowNull: false,
+        // allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
@@ -26,7 +26,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       duration: {
-        type: Sequelize.TIME
+        type: Sequelize.INTEGER
       },
       userId:{
         type:Sequelize.STRING

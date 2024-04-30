@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      // this.hasMany(models.test,{as:'test'})
+      this.hasMany(models.test,{as:'test'})
     }
   }
   users.init(
@@ -28,7 +28,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       email: {
         type: DataTypes.STRING,
-        allowNull: "false",
+        // allowNull: "false",
       },
 
       password: {

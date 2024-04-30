@@ -1,8 +1,8 @@
 const testService= require("../services/test.service");
 exports.createTest=async(req,res)=>{
     try{
-        const test= await testService.createTest(req);
-        res.status(201).json({test})
+        const tests= await testService.createTest(req);
+        res.status(201).json({tests})
 
     }
     catch(error){

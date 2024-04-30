@@ -7,11 +7,12 @@ const jwt = require("jsonwebtoken");
 exports.signup = async (payload) => {
   try {
     const { name, email, password, role } = payload.body;
-    console.log("Role--->", role, password);
-    // const existingUser = await users.findOne({ where: { email: email } });
-    // if (existingUser) {
-    //   return 409;
-    // }
+    console.log("Signup Body data",payload.body);
+   
+    const existingUser = await users.findOne({ where: { email: email } });
+    if (existingUser) {
+      return 409;
+    }
     const validateEmail = (email) => {
       const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
       return regex.test(email);
@@ -54,6 +55,7 @@ exports.login = async (payload) => {
     if (!user) {
       throw new CustomError("User doesn't exist", 404);
     }
+    console.log("Login Userjsdgdfo",user)
     const isValidPassword = await bcrypt.compare(password, user.password);
     if (!isValidPassword) {
       console.log("Password is not matched");
