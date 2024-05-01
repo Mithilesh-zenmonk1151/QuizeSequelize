@@ -17,7 +17,7 @@ module.exports = {
         type: Sequelize.STRING,
       },
       testQuestionId: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false,
       },
       response: {
@@ -29,6 +29,7 @@ module.exports = {
       correct: {
         type: Sequelize.BOOLEAN,
       },
+   
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

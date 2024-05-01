@@ -3,8 +3,7 @@
 // const { user } = require("../models");
 // const { roleEnum } = require("../libs/constants");
 // const {question}=require("../models")
-const {questions} = require("../models");
-
+const { questions } = require("../models");
 
 // exports.addQuestions = async (payload) => {
 //   try {
@@ -43,19 +42,21 @@ const {questions} = require("../models");
 // }
 // };
 exports.fetchQuestions = async (payload) => {
-  const { id } = payload.params;
-  if (!id) throw new CustomError("details not found", 404);
-  if (id == -1) {
-    const response = await questions.findAll();
-    if (!response) throw new CustomError("Questions not found", 404);
-    if (response.length === 0) throw new CustomError("No questions", 204);
-    return response;
-  }
-  const test_data = await test.findOne({ where: { uuid: id } });
-  console.log("test details cdd", test_data.id);
-  const response = await test_question.findAll({
-    where: { testId: test_data.id },
-    include: "question",
+  console.log("PAYLOAD++", payload);
+  const testId = payload.body;
+  console.log("payload.body", payload.body);
+  console.log("TTTTTEEEEEEESSSSSSSSSTTTTTIIID=======================", testId);
+  // if (!testId) throw new CustomError("details not found", 404);
+  // if (testId == -1) {
+  //   const response = await questions.findAll();
+  //   if (!response) throw new CustomError("Questions not found", 404);
+  //   if (response.length === 0) throw new CustomError("No questions", 204);
+  //   return response;
+  // }
+  // const testData = await test.findOne({ where: { testId: testId } });
+  // console.log("test details cdd", testData.uuid);
+  const response = await questions.findAll({
+    where: { testId: testId },
   });
   console.log("getting questions related to test response: ", response);
   if (!response) throw new CustomError("Questions not found", 404);
@@ -100,25 +101,22 @@ exports.createQuestion = async (payload) => {
     console.log("PAAAAYLLLOAD.BBODDY", payload.body);
     try {
       const Quest = await questions.create({
-        title:title,
-        correctOption:correctOption,
-        weightage:weightage,
-        option1:option1,
-        option2:option2,
-        option3:option3,
-        option4:option4,
+        title: title,
+        correctOption: correctOption,
+        weightage: weightage,
+        option1: option1,
+        option2: option2,
+        option3: option3,
+        option4: option4,
         testId: testId,
       });
       console.log("Question s sabsksjc", Quest);
       return Quest;
-
     } catch (error) {
-      console.log("question error", error)
+      console.log("question error", error);
     }
-    
-
   } catch (error) {
-    console.log("error",error);
+    console.log("error", error);
     throw error;
   }
 };

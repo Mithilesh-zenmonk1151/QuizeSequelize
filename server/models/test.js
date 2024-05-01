@@ -9,12 +9,12 @@ module.exports = (sequelize, DataTypes) => {
      */
 
     static associate(models) {
-      this.hasMany(models.questions, {
-        foreignKey: "testId",
-        sourceKey: "id",
-      });
+      // this.hasMany(models.questions, {
+      //   foreignKey: "testId",
+      //   sourceKey: "id",
+      // });
 
-      this.belongsTo(models.users,{foreignKey:'userId', as:'user'})
+      // this.belongsTo(models.users,{foreignKey:'userId', as:'user'})
     }
   }
   test.init(

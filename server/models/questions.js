@@ -9,14 +9,14 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      this.hasMany(models.testQuestion, {
-        foreignKey: "questionId",
-        sourceKey: "id",
-      });
-      this.hasMany(models.response, {
-        foreignKey: "questionId",
-        sourceKey: "id",
-      });
+      // this.hasMany(models.testQuestion, {
+      //   foreignKey: "questionId",
+      //   sourceKey: "id",
+      // });
+      // this.hasMany(models.response, {
+      //   foreignKey: "questionId",
+      //   sourceKey: "id",
+      // });
     }
     toJSON() {
       return { ...this.get(), id: undefined };

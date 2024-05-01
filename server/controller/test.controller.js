@@ -14,6 +14,7 @@ exports.createTest=async(req,res)=>{
 exports.getTests=async(req,res)=>{
     try{
         const tests= await testService.getTests(req);
+        
         res.status(200).json({tests})
 
     }

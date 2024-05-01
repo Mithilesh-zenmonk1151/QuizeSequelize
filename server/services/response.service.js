@@ -1,41 +1,47 @@
 const CustomError = require("../libs/error");
-const { responses } = require("../models/response");
-const { questions } = require("../models/questions");
+const { response } = require("../models");
+const { questions } = require("../models");
 
 exports.createResponse = async (payload) => {
   try {
     const { userId, questionId, studentAnswer } = payload.body;
     if (!userId) {
       throw new CustomError("User not found", 404);
+
     }
-    const questionRe = await questions.find({ where: { id: questionId } });
+    console.log("Payload.body",payload.body);
+    const questionRe = await questions.findOne({ where: { uuid: questionId } });
     const correctQuestion = questionRe.correctOption;
     const questMark = questionRe.weightage;
+    console.log("qqqqueeesstMARKSS",questMark,correctQuestion )
     let questionMarks;
-    let response;
+    let respon;
     if (correctQuestion === studentAnswer) {
-      response = true;
+      console.log("Yess it is Correct hai ============")
+      respon = true;
     } else {
-      response = false;
+      respon = false;
     }
-    if (response) {
+    if (respon) {
       questionMarks = questMark;
     } else {
       questionMarks = 0;
     }
-    const isResponseExist= await responses.find({where:{questionId}});
-    if(!isResponseExist){
-        var Response = await responses.create({
+    // const isResponseExist= await responses.findOne({where:{testQuestionId:questionId}});
+    // if(!isResponseExist){
+        const Response = await response.create({
             userId: userId,
-            response: response,
+            response: respon,
             questionMarks: questionMarks,
-            correct: response,
-          });
+            correct: respon,
+            testQuestionId:questionId
+        });
+    //       });
 
-    }
-    else if(isResponseExist){
+    // }
+    // else if(isResponseExist){
         
-    }
+    // }
     
 
     return Response;

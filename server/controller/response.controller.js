@@ -10,3 +10,16 @@ exports.createResponse= async(req,res)=>{
         console.log(error);
     }
 }
+
+exports.getResponses=async(req,res)=>{
+    try{
+
+    }
+    catch(error){
+        res.status(500).json({message:error.message});
+        console.log(error);
+        console.log(error.message);
+
+
+    }
+}
