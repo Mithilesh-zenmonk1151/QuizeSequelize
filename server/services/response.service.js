@@ -4,13 +4,13 @@ const { questions } = require("../models");
 
 exports.createResponse = async (payload) => {
   try {
-    const { userId, questionId, studentAnswer } = payload.body;
+    const { userId, testQuestionId, studentAnswer } = payload.body;
     if (!userId) {
       throw new CustomError("User not found", 404);
 
     }
     console.log("Payload.body",payload.body);
-    const questionRe = await questions.findOne({ where: { uuid: questionId } });
+    const questionRe = await questions.findOne({ where: { uuid: testQuestionId} });
     const correctQuestion = questionRe.correctOption;
     const questMark = questionRe.weightage;
     console.log("qqqqueeesstMARKSS",questMark,correctQuestion )
@@ -27,19 +27,23 @@ exports.createResponse = async (payload) => {
     } else {
       questionMarks = 0;
     }
-    // const isResponseExist= await responses.findOne({where:{testQuestionId:questionId}});
+    // const isResponseExist= await response.findOne({where:{testQuestionId:questionId}});
+    let Response
     // if(!isResponseExist){
-        const Response = await response.create({
+        Response= await response.create({
             userId: userId,
             response: respon,
             questionMarks: questionMarks,
             correct: respon,
-            testQuestionId:questionId
+            testQuestionId:testQuestionId
         });
-    //       });
+          
 
     // }
     // else if(isResponseExist){
+    //   const
+
+
         
     // }
     
