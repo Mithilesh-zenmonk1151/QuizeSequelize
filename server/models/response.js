@@ -21,8 +21,13 @@ module.exports = (sequelize, DataTypes) => {
         defaultValue: DataTypes.UUIDV4,
       },
       userId: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      testId:{
         type: DataTypes.UUID,
         allowNull: false,
+
       },
       response: { type: DataTypes.STRING, allowNull: false },
       questionMarks: { type: DataTypes.INTEGER, allowNull: false },
