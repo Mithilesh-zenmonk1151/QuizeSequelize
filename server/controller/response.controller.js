@@ -13,6 +13,9 @@ exports.createResponse= async(req,res)=>{
 
 exports.getResponses=async(req,res)=>{
     try{
+        console.log("Gett controller");
+        const response= await responseService.getResponse(req);
+        res.status(200).json({response});
 
     }
     catch(error){

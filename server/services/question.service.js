@@ -87,7 +87,6 @@ const CustomError = require("../libs/error");
 exports.createQuestion = async (payload) => {
   try {
     // const { title, option1,option2,option3,option4, weightage, testId, correctOption } = payload.body;
-
     const {
       title,
       correctOption,

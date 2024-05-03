@@ -16,6 +16,9 @@ module.exports = {
       userId: {
         type: Sequelize.STRING,
       },
+      testId:{
+        type: Sequelize.STRING,
+      },
       testQuestionId: {
         type: Sequelize.STRING,
         allowNull: false,
